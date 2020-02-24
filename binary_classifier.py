@@ -34,3 +34,7 @@ class Net(nn.Module):
         # This produces output
         x = self.fc2(x)
         return x
+
+model = Net()
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
