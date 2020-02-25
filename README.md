@@ -13,8 +13,7 @@ predict.py : implementation of prediction
 
 ## Instructure
 1. Clone the repository and navigate to the downloaded folder.
-	
-	```	
+		
 		git clone https://github.com/kondra50/moonset_classification_pytorch.git
 		cd moonset_classification_pytorch.git
 
