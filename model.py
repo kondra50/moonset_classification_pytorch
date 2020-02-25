@@ -30,7 +30,7 @@ class Net(nn.Module):
     # This function takes an input and predicts the class, (0 or 1)
     def predict(self, x):
         # Apply softmax to output
-        pred = F.softmax(self.forward(x),dim=1)
+        pred = F.softmax(self.forward(x))
         #pred = F.softmax(input, dim=2)
         #softmax(input, dim=3)
         ans = []
@@ -39,6 +39,7 @@ class Net(nn.Module):
                 ans.append(0)
             else:
                 ans.append(1)
+        return torch.tensor(ans)
 
 model = Net()
 #criterion = nn.CrossEntropyLoss()
