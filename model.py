@@ -35,6 +35,19 @@ class Net(nn.Module):
         x = self.fc2(x)
         return x
 
+    # This function takes an input and predicts the class, (0 or 1)
+    def predict(self, x):
+        # Apply softmax to output
+        pred = F.softmax(self.forward(x),dim=1)
+        #pred = F.softmax(input, dim=2)
+        #softmax(input, dim=3)
+        ans = []
+        for t in pred:
+            if t[0] > t[1]:
+                ans.append(0)
+            else:
+                ans.append(1)
+
 model = Net()
-criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+#criterion = nn.CrossEntropyLoss()
+#optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
