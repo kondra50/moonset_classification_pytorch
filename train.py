@@ -8,9 +8,9 @@ import sklearn.datasets
 #plt.scatter(X[:,0],X[:,1],s=40,c=y)
 #plt.show()
 #plt.savefig('myfig.png' )
-
+epoches=500
 # numpy to tensor
-X, y = sklearn.datasets.make_moons(500, noise=0.1)
+X, y = sklearn.datasets.make_moons(1000, noise=0.1)
 X = torch.from_numpy(X).type(torch.FloatTensor)
 y = torch.from_numpy(y).type(torch.LongTensor)
 def save_model(model, model_dir):
@@ -79,8 +79,6 @@ if __name__ == '__main__':
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
-    #train_loader = _get_train_loader()
-
     # Trains the model (given line of code, which calls the above training function)
     # This function *also* saves the model state dictionary
-    train(model, 100, optimizer, criterion)
+    train(model, epoches, optimizer, criterion)
